@@ -9,7 +9,7 @@ class Game
   end
 
   def play
-    
+
     case self.player_one_choice
     when self.computer
       self.winner = "TIE"
@@ -73,7 +73,7 @@ end
 def run_simulation
   wins = []
 
-  (1..1000).each do
+  (1..1000000).each do
     game = Game.new
     game.player_one_choice = game.get_computer_choice
     game.get_computer_choice
@@ -86,10 +86,10 @@ def run_simulation
     end
   end
 
-  puts "Ties: #{wins.count("tie")} (#{100*(wins.count("tie")/1000.00).round(2)}%)"
-  puts "Rock: #{wins.count("rock")} (#{100*(wins.count("rock")/1000.00).round(2)}%)"
-  puts "Paper: #{wins.count("paper")} (#{100*(wins.count("paper")/1000.00).round(2)}%)"
-  puts "Scissors: #{wins.count("scissors")} (#{100*(wins.count("scissors")/1000.00).round(2)}%)"
+  puts "Ties: #{wins.count("tie")} (#{100*(wins.count("tie")/wins.count.to_f).round(2)}%)"
+  puts "Rock: #{wins.count("rock")} (#{100*(wins.count("rock")/wins.count.to_f).round(2)}%)"
+  puts "Paper: #{wins.count("paper")} (#{100*(wins.count("paper")/wins.count.to_f).round(2)}%)"
+  puts "Scissors: #{wins.count("scissors")} (#{100*(wins.count("scissors")/wins.count.to_f).round(2)}%)"
 end
 
 
